@@ -37,7 +37,7 @@ public class CsvParser
                 Console.WriteLine($"Line skipped due to; {e.Message}");
             }
         }
-        _db.AddRange(cereals);
-        _db.SaveChanges();
+            _db.AddRange(cereals);
+            _db.SaveChanges();
     }
 }
