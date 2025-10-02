@@ -63,3 +63,4 @@ C:\Users\SPAC-O-6\.vscode\CerealAPI2909\CerealAPI\obj\Debug\net9.0\ref\CerealAPI
 C:\Users\SPAC-O-6\.vscode\CerealAPI2909\CerealAPI\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\SPAC-O-6\.vscode\CerealAPI2909\CerealAPI\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\SPAC-O-6\.vscode\CerealAPI2909\CerealAPI\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\SPAC-O-6\.vscode\CerealAPI2909\CerealAPI\obj\Debug\net9.0\CerealAPI.sourcelink.json
