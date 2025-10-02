@@ -12,16 +12,16 @@ public class CerealClass
     public int Fat { get; set; }
     public int Sodium { get; set; }
     
-    public float Fiber { get; set; }
-    public float Carbo { get; set; }
+    public double Fiber { get; set; }
+    public double Carbo { get; set; }
     
     public int Sugars { get; set; }
     public int Potass { get; set; }
     public int Vitamins { get; set; }
     public int Shelf { get; set; }
     
-    public float Weight { get; set; }
-    public float Cups { get; set; }
-    public float Rating { get; set; }
+    public double Weight { get; set; }
+    public double Cups { get; set; }
+    public double Rating { get; set; }
     
 }

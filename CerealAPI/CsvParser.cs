@@ -25,7 +25,7 @@ public class CsvParser
         {
             if(string.IsNullOrWhiteSpace(line)) continue;
             
-            var fields = line.Split(';');
+            var fields = line.Split(';').Select(x => x.Trim()).ToArray();
 
             try
             {
