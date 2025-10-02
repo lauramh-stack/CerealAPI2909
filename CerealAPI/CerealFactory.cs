@@ -32,21 +32,21 @@ public class CerealFactory
 
     private static int ParseInt(string input)
     {
+        if (string.IsNullOrWhiteSpace(input))
+            return 0;
         if (!int.TryParse(input.Replace(",", ".").Trim(), NumberStyles.Any, CultureInfo.InvariantCulture,
                 out var result))
-            throw new FormatException($"Invalid integer: '{input}'");
-        if (result < 0)
-            throw new FormatException($"Negative integer not allowed: '{input}'");
-        return result;
+            return 0;
+        return result < 0 ? 0 : result;
     }
     
     private static double ParseDouble(string input)
     {
+        if (string.IsNullOrWhiteSpace(input))
+            return 0;
         if (!double.TryParse(input.Replace(",", ".").Trim(), NumberStyles.Any, CultureInfo.InvariantCulture,
                 out var result))
-            throw new FormatException($"Invalid float: '{input}'");
-        if (result < 0)
-            throw new FormatException($"Negative float not allowed: '{input}'");
-        return result;
+            return 0;
+        return result < 0 ? 0 : result;
     }
 }
