@@ -30,16 +30,18 @@ public class CerealFactory
         };
     }
 
+    // Parses the int and makes sure the result is a valid integer
     private static int ParseInt(string input)
     {
         if (string.IsNullOrWhiteSpace(input))
             return 0;
-        if (!int.TryParse(input.Replace(",", ".").Trim(), NumberStyles.Any, CultureInfo.InvariantCulture,
+        if (!int.TryParse(input.Trim(), NumberStyles.Any, CultureInfo.InvariantCulture,
                 out var result))
             return 0;
-        return result < 0 ? 0 : result;
+        return result;
     }
     
+    // Parses the double and makes sure the result is a valid double
     private static double ParseDouble(string input)
     {
         if (string.IsNullOrWhiteSpace(input))
@@ -47,6 +49,6 @@ public class CerealFactory
         if (!double.TryParse(input.Replace(",", ".").Trim(), NumberStyles.Any, CultureInfo.InvariantCulture,
                 out var result))
             return 0;
-        return result < 0 ? 0 : result;
+        return result;
     }
 }

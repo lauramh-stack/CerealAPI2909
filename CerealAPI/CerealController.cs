@@ -10,7 +10,10 @@ public class CerealController : ControllerBase
     {
         _db = db;
     }
+    
+    // Add a method to get all
 
+    // Returns a specific cereal based on the ID
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
@@ -19,8 +22,7 @@ public class CerealController : ControllerBase
         return Ok(cereal);
     }
 
-    // Add a way to filter the query (HttpGet; With filter)
-    
+    // Allows the creation of a new cereal
     [HttpPost]
     public IActionResult Create(CerealClass cerealClass)
     {
@@ -34,6 +36,7 @@ public class CerealController : ControllerBase
         return CreatedAtAction(nameof(GetById), new {id = cerealClass.Id}, cerealClass);
     }
     
+    // Allows the user to update a preexisting cereal through it's ID
     [HttpPut("{id}")]
     public IActionResult Update(int id, CerealClass cerealClass)
     {
@@ -61,6 +64,7 @@ public class CerealController : ControllerBase
         return Ok(existing);
     }
 
+    // Allows the deletion of a specific cereal based on ID
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
