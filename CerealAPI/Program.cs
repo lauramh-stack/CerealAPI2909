@@ -29,6 +29,9 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<CerealDbContext>();
 
+    // Loads the CSV file
+    // (Though it currently duplicates it, since it's not deleted from
+    // the database, and it's reloaded each time the program is.)
     var parser = new CsvParser(db);
     parser.Parse("Data/Cereal.csv");
 }

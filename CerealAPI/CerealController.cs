@@ -13,12 +13,12 @@ public class CerealController : ControllerBase
     
     // Add a method to get all
 
-    // Returns a specific cereal based on the ID
+    // Returns if a specific cereal exists based on the ID
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
         var cereal = _db.Cereals.Find(id);
-        if(cereal == null) return NotFound();
+        if(cereal == null) return NotFound("No cereal exists with that ID.");
         return Ok(cereal);
     }
 
@@ -40,9 +40,13 @@ public class CerealController : ControllerBase
     [HttpPut("{id}")]
     public IActionResult Update(int id, CerealClass cerealClass)
     {
+        // Checks if the cereal actually exists 
+        // Else it returns a NotFound
         var existing = _db.Cereals.Find(id);
-        if (existing == null) return NotFound();
+        if (existing == null) return NotFound("The cereal you are trying to update does not exist.");
 
+        // Updates the cereal based on the given data
+        // Currently requires all parameters be filled 
         existing.Name = cerealClass.Name;
         existing.Mfr = cerealClass.Mfr;
         existing.Type = cerealClass.Type;
@@ -60,6 +64,7 @@ public class CerealController : ControllerBase
         existing.Cups = cerealClass.Cups;
         existing.Rating = cerealClass.Rating;
         
+        // Saves the changes and returns a response code 
         _db.SaveChanges();
         return Ok(existing);
     }
@@ -69,7 +74,7 @@ public class CerealController : ControllerBase
     public IActionResult Delete(int id)
     {
         var cereal = _db.Cereals.Find(id);
-        if (cereal == null) return NotFound();
+        if (cereal == null) return NotFound("No cereal exists with that ID.");
         
         _db.Remove(cereal);
         _db.SaveChanges();
